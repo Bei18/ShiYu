@@ -26,7 +26,6 @@
       padding: 24px 20px;
     }
 
-    /* 白色精致卡片 */
     .card {
       width: 100%;
       max-width: 360px;
@@ -38,7 +37,6 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    /* 图标发光及阴影 */
     .app-icon-wrapper {
       position: relative;
       display: inline-block;
@@ -84,7 +82,6 @@
       line-height: 1.5;
     }
 
-    /* 独立指引箭头区域（标准流排版，不重叠） */
     .arrow-guide-box {
       display: flex;
       flex-direction: column;
@@ -118,7 +115,6 @@
       }
     }
 
-    /* 主下载按钮 */
     .btn-download {
       display: flex;
       align-items: center;
@@ -147,7 +143,6 @@
       fill: currentColor;
     }
 
-    /* 安心提醒与安全标识 */
     .security-section {
       margin-top: 24px;
       padding-top: 20px;
@@ -182,7 +177,6 @@
       line-height: 1.4;
     }
 
-    /* 微信引导遮罩层（浅色适配） */
     .wx-mask {
       display: none;
       position: fixed;
@@ -190,68 +184,157 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 9999;
+      color: #ffffff;
     }
 
-    .wx-guide {
-      position: absolute;
-      top: 16px;
-      right: 24px;
+    .wx-guide-container {
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      position: relative;
+    }
+
+    .wx-top-bar {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 12px;
+      padding-top: 8px;
     }
 
-    /* 跳动曲线箭头 */
-    .wx-arrow {
-      width: 56px;
-      height: 56px;
-      margin-right: 12px;
-      animation: float 1.5s infinite ease-in-out;
-    }
-
-    .guide-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      border-radius: 20px;
-      padding: 20px;
-      max-width: 280px;
-      margin-top: 4px;
-    }
-
-    .guide-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0284c7;
-      margin-bottom: 12px;
-    }
-
-    .guide-step {
-      font-size: 14px;
-      color: #334155;
-      line-height: 1.8;
+    .wx-menu-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #38bdf8;
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
     }
 
-    .badge-dots {
+    .wx-dots {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+    }
+
+    .wx-arrow-pointer {
+      position: absolute;
+      top: 56px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      animation: float-arrow 1.2s infinite ease-in-out;
+    }
+
+    .wx-arrow-pointer svg {
+      width: 100%;
+      height: 100%;
+      stroke: #38bdf8;
+      fill: none;
+    }
+
+    .visual-card {
+      background: #ffffff;
+      color: #1e293b;
+      border-radius: 24px;
+      padding: 24px 20px;
+      margin-top: 64px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      text-align: left;
+    }
+
+    .visual-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .visual-title span {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: #f1f5f9;
-      color: #0f172a;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-weight: bold;
-      letter-spacing: 2px;
+      width: 22px;
+      height: 22px;
+      background: #0284c7;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
     }
 
-    @keyframes float {
+    .step-item {
+      display: flex;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .step-num {
+      width: 24px;
+      height: 24px;
+      background: #e0f2fe;
+      color: #0284c7;
+      font-weight: 700;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 14px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .step-text strong {
+      color: #0284c7;
+    }
+
+    .mock-browser-icon {
+      width: 28px;
+      height: 28px;
+      background: #0284c7;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .mock-browser-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+    }
+
+    .close-tips {
+      text-align: center;
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 16px;
+    }
+
+    @keyframes float-arrow {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
@@ -259,7 +342,6 @@
 </head>
 <body>
 
-  <!-- 主卡片 -->
   <div class="card">
     <div class="app-icon-wrapper">
       <img src="https://sychat.cn/favicon.ico" alt="拾语 Logo" class="app-icon">
@@ -268,15 +350,13 @@
     <h1 class="app-name">拾语</h1>
     <p class="app-desc">免费使用的视频聊天交友软件</p>
 
-    <!-- 动态指引箭头（独立排版，绝对不遮挡） -->
     <div class="arrow-guide-box" id="webGuide">
-      <span class="arrow-guide-text"> 点 击 下 载 </span>
+      <span class="arrow-guide-text">点击下方开始下载</span>
       <svg class="arrow-guide-icon" viewBox="0 0 24 24">
         <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
       </svg>
     </div>
 
-    <!-- 安全下载按钮 -->
     <a href="https://oss01.sychat.cn/app/%E6%8B%BE%E8%AF%AD20260709145300_V1.0.8_1008.apk" class="btn-download" id="downloadBtn">
       <svg viewBox="0 0 24 24">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
@@ -284,7 +364,6 @@
       <span id="btnText">安全下载</span>
     </a>
 
-    <!-- 安心提醒板块 -->
     <div class="security-section">
       <div class="security-tags">
         <span class="tag-item">
@@ -293,35 +372,60 @@
         </span>
         <span class="tag-item">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          安全无毒
+          无毒无木马
         </span>
         <span class="tag-item">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          隐私安全
+          隐私加密
         </span>
       </div>
       <p class="security-tips">已通过安全软件检测，请放心安装使用</p>
     </div>
   </div>
 
-  <!-- 微信专属提示遮罩 -->
   <div class="wx-mask" id="wxMask">
-    <div class="wx-guide">
-      <!-- 曲线箭头图案 -->
-      <svg class="wx-arrow" viewBox="0 0 50 50" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M 10 40 Q 30 20 42 8" />
-        <path d="M 28 8 L 42 8 L 42 22" />
-      </svg>
+    <div class="wx-guide-container">
       
-      <div class="guide-card">
-        <div class="guide-title">请在浏览器中打开</div>
-        <div class="guide-step">
-          1. 点击右上角 <span class="badge-dots">•••</span> 按钮
-        </div>
-        <div class="guide-step">
-          2. 选择 <strong>「在浏览器打开」</strong> 即可下载
+      <div class="wx-top-bar">
+        <div class="wx-menu-btn">
+          <svg class="wx-dots" viewBox="0 0 24 24">
+            <circle cx="5" cy="12" r="2"/>
+            <circle cx="12" cy="12" r="2"/>
+            <circle cx="19" cy="12" r="2"/>
+          </svg>
         </div>
       </div>
+
+      <div class="wx-arrow-pointer">
+        <svg viewBox="0 0 50 50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 10 40 Q 30 20 42 8" />
+          <path d="M 28 8 L 42 8 L 42 22" />
+        </svg>
+      </div>
+
+      <div class="visual-card">
+        <div class="visual-title">
+          <span>i</span> 请按提示完成下载
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-text">点击右上角右上方的 <strong>「•••」</strong> 按钮</div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-text">选择 <strong>「在浏览器打开」</strong></div>
+          <div class="mock-browser-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+        </div>
+
+        <p class="close-tips">点击任意区域可关闭此提示</p>
+      </div>
+
     </div>
   </div>
 
@@ -337,7 +441,6 @@
       const btnText = document.getElementById('btnText');
 
       if (isWeChat()) {
-        // 微信环境：隐藏网页版箭头指示，显示微信右上角引导
         if (webGuide) webGuide.style.display = 'none';
         
         mask.style.display = 'block';
@@ -352,7 +455,6 @@
           mask.style.display = 'none';
         });
       } else {
-        // 普通网页/浏览器环境：显示向下跳动的指引箭头
         if (webGuide) webGuide.style.display = 'flex';
       }
     });
