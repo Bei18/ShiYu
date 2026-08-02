@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>拾语</title>
   
-  <!-- 新增网页 logo / favicon 图标 -->
+  <!-- 网页 logo / favicon 图标 -->
   <link rel="shortcut icon" href="https://sychat.cn/favicon.ico" type="image/x-icon">
   <link rel="icon" href="https://sychat.cn/favicon.ico" type="image/x-icon">
 
@@ -15,6 +15,17 @@
       margin: 0;
       padding: 0;
       -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 微信抓取预览专用样式：不占据任何可视空间 */
+    .hidden-text {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      z-index: -9999;
     }
 
     body {
@@ -29,17 +40,6 @@
       justify-content: center;
       align-items: center;
       padding: 24px 20px;
-    }
-
-    /* 微信抓取预览文本专属样式：页面上完全不可见且不占空间 */
-    .wx-preview-zero-space {
-      position: absolute;
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-      z-index: -9999;
     }
 
     .card {
@@ -324,11 +324,8 @@
 </head>
 <body>
 
-  <!-- 放在 body 最顶部：微信抓取预览专用内容（网页上隐藏不显示） -->
-  <div class="wx-preview-zero-space">
-    安全下载&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;&#8203;
-  </div>
-
+  <!-- 页面最前面：微信抓取预览专用文本 -->
+  <div class="hidden-text">安全下载&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;</div>
   <div class="card">
     <div class="app-icon-wrapper">
       <img src="https://sychat.cn/favicon.ico" alt="拾语 Logo" class="app-icon">
@@ -405,7 +402,7 @@
 
   <script>
     function isWeChat() {
-      // 允许通过在 URL 后加上 ?wx=1 或 ?2 测试微信遮罩视图
+      // 本地浏览器测试：只需在链接后加上 ?wx=1 即可体验微信遮罩
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('wx') || urlParams.has('2')) {
         return true;
