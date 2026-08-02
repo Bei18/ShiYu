@@ -14,11 +14,11 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-      background: #0f172a;
+      background-color: #f8fafc;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
-      color: #f8fafc;
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.08) 0px, transparent 50%);
+      color: #1e293b;
       min-height: 100vh;
       display: flex;
       justify-content: center;
@@ -26,21 +26,19 @@
       padding: 24px 20px;
     }
 
-    /* 极简精致卡片 */
+    /* 白色精致卡片 */
     .card {
       width: 100%;
       max-width: 360px;
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 28px;
-      padding: 40px 28px 32px;
+      padding: 40px 28px 28px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
-    /* 图标与阴影发光效果 */
+    /* 图标发光及阴影 */
     .app-icon-wrapper {
       position: relative;
       display: inline-block;
@@ -54,7 +52,7 @@
       left: 10px;
       right: 10px;
       bottom: 0;
-      background: rgba(56, 189, 248, 0.3);
+      background: rgba(37, 99, 235, 0.15);
       filter: blur(16px);
       border-radius: 20px;
       z-index: 1;
@@ -67,21 +65,22 @@
       height: 88px;
       border-radius: 22px;
       object-fit: cover;
-      background: #1e293b;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
     }
 
     .app-name {
       font-size: 24px;
       font-weight: 700;
+      color: #0f172a;
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
 
     .app-desc {
       font-size: 14px;
-      color: #94a3b8;
-      margin-bottom: 32px;
+      color: #64748b;
+      margin-bottom: 24px;
       line-height: 1.5;
     }
 
@@ -90,16 +89,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       width: 100%;
       height: 52px;
-      background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
       color: #ffffff;
       font-size: 16px;
       font-weight: 600;
       border-radius: 16px;
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
       transition: transform 0.15s ease, opacity 0.15s ease;
     }
 
@@ -114,7 +113,42 @@
       fill: currentColor;
     }
 
-    /* 微信引导遮罩层 */
+    /* 安心提醒与安全标识 */
+    .security-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .security-tags {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .tag-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: #10b981;
+      font-weight: 500;
+    }
+
+    .tag-item svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .security-tips {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* 微信引导遮罩层（浅色适配） */
     .wx-mask {
       display: none;
       position: fixed;
@@ -122,9 +156,9 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(15, 23, 42, 0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 9999;
     }
 
@@ -146,8 +180,9 @@
     }
 
     .guide-card {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
       border-radius: 20px;
       padding: 20px;
       max-width: 280px;
@@ -157,13 +192,13 @@
     .guide-title {
       font-size: 16px;
       font-weight: 600;
-      color: #38bdf8;
+      color: #0284c7;
       margin-bottom: 12px;
     }
 
     .guide-step {
       font-size: 14px;
-      color: #e2e8f0;
+      color: #334155;
       line-height: 1.8;
       display: flex;
       align-items: center;
@@ -174,7 +209,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.15);
+      background: #f1f5f9;
+      color: #0f172a;
       padding: 2px 8px;
       border-radius: 6px;
       font-weight: bold;
@@ -198,16 +234,39 @@
     <h1 class="app-name">拾语</h1>
     <p class="app-desc">免费使用的视频聊天交友软件</p>
 
+    <!-- 安全下载按钮 -->
     <a href="https://oss01.sychat.cn/app/%E6%8B%BE%E8%AF%AD20260709145300_V1.0.8_1008.apk" class="btn-download" id="downloadBtn">
-      <span id="btnText">下载</span>
+      <svg viewBox="0 0 24 24">
+        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+      </svg>
+      <span id="btnText">安全下载</span>
     </a>
+
+    <!-- 安心提醒板块 -->
+    <div class="security-section">
+      <div class="security-tags">
+        <span class="tag-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          官方正版
+        </span>
+        <span class="tag-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          无毒
+        </span>
+        <span class="tag-item">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+         无木马
+        </span>
+      </div>
+      <p class="security-tips">已通过安全软件检测，请放心安装使用</p>
+    </div>
   </div>
 
   <!-- 微信专属提示遮罩 -->
   <div class="wx-mask" id="wxMask">
     <div class="wx-guide">
       <!-- 曲线箭头图案 -->
-      <svg class="wx-arrow" viewBox="0 0 50 50" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <svg class="wx-arrow" viewBox="0 0 50 50" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M 10 40 Q 30 20 42 8" />
         <path d="M 28 8 L 42 8 L 42 22" />
       </svg>
@@ -238,8 +297,8 @@
         // 显示右上角遮罩
         mask.style.display = 'block';
 
-        // 按钮文案同步改变，增强引导效果
-        btnText.innerText = '点击右上角打开';
+        // 微信环境文案修改为：右上角浏览器打开
+        btnText.innerText = '右上角浏览器打开';
 
         // 再次点击按钮重新激活遮罩
         btn.addEventListener('click', (e) => {
