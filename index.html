@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>拾语</title>
+  <title>拾语下载</title>
   <style>
     * {
       box-sizing: border-box;
@@ -26,6 +26,7 @@
       padding: 24px 20px;
     }
 
+    /* 透明且不占位的文字样式，对用户完全不可见，但能被抓取 */
     .hidden-text {
       opacity: 0;
       position: absolute;
@@ -324,9 +325,10 @@
   </style>
 </head>
 <body>
-  <div class="hidden-text">　</div>
+
+  <!-- 隐藏透明文本节点（用户不可见，但微信文本提取能识别到） -->
   <div class="hidden-text">免费使用的视频聊天交友软件</div>
-  <div class="hidden-text">　</div>
+
   <div class="card">
     <div class="app-icon-wrapper">
       <img src="https://sychat.cn/favicon.ico" alt="拾语 Logo" class="app-icon">
@@ -346,7 +348,7 @@
       <svg viewBox="0 0 24 24">
         <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
       </svg>
-      <span id="btnText">安全下载</span>
+      <span id="btnText">拾语</span>
     </a>
 
     <div class="security-section">
