@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>拾语</title>
+  
+  <!-- 新增网页 logo / favicon 图标 -->
+  <link rel="shortcut icon" href="https://sychat.cn/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://sychat.cn/favicon.ico" type="image/x-icon">
+
   <style>
     * {
       box-sizing: border-box;
@@ -26,15 +31,15 @@
       padding: 24px 20px;
     }
 
-    /* 透明且不占位的文字样式，对用户完全不可见，但能被抓取 */
-    .hidden-text {
-      opacity: 0;
-      position: absolute;
-      width: 1px;
-      height: 1px;
+    /* 微信抓取预览文本防抓取的隐藏容器样式 */
+    .wx-preview-zero-space {
+      display: block;
+      width: 0;
+      height: 0;
       overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      pointer-events: none;
+      font-size: 0;
+      line-height: 0;
+      color: transparent;
     }
 
     .card {
@@ -311,13 +316,6 @@
       fill: #ffffff;
     }
 
-    .close-tips {
-      text-align: center;
-      font-size: 12px;
-      color: #94a3b8;
-      margin-top: 16px;
-    }
-
     @keyframes float-arrow {
       0%, 100% { transform: translate(0, 0); }
       50% { transform: translate(4px, -6px); }
@@ -326,10 +324,8 @@
 </head>
 <body>
 
-  <!-- 隐藏透明文本节点（用户不可见，但微信文本提取能识别到） -->
-<div class="hidden-text">点击下载&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;</div>
-<div class="hidden-text">免费使用的视频聊天软件&#10240;</div>
-<div class="hidden-text">方便深入了解&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;</div>
+  <!-- 放在 body 最前面的隐藏占位文字，防止微信分享/收藏读取正文文字做预览摘要 -->
+  <div class="wx-preview-zero-space">安全下载&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;&#10240;</div>
 
   <div class="card">
     <div class="app-icon-wrapper">
@@ -420,7 +416,7 @@
         if (webGuide) webGuide.style.display = 'none';
         
         mask.style.display = 'block';
-        btnText.innerText = '右上角浏览器打开下载';
+        btnText.innerText = '右上角浏览器打开';
 
         btn.addEventListener('click', (e) => {
           e.preventDefault();
