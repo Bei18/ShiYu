@@ -33,7 +33,7 @@
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 28px;
-      padding: 40px 28px 28px;
+      padding: 36px 28px 28px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
@@ -42,7 +42,7 @@
     .app-icon-wrapper {
       position: relative;
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .app-icon-wrapper::after {
@@ -61,9 +61,9 @@
     .app-icon {
       position: relative;
       z-index: 2;
-      width: 88px;
-      height: 88px;
-      border-radius: 22px;
+      width: 84px;
+      height: 84px;
+      border-radius: 20px;
       object-fit: cover;
       background: #f1f5f9;
       border: 1px solid #e2e8f0;
@@ -74,14 +74,48 @@
       font-weight: 700;
       color: #0f172a;
       letter-spacing: -0.5px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .app-desc {
       font-size: 14px;
       color: #64748b;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       line-height: 1.5;
+    }
+
+    /* 独立指引箭头区域（标准流排版，不重叠） */
+    .arrow-guide-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 12px;
+      animation: bounce 1.2s infinite ease-in-out;
+    }
+
+    .arrow-guide-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 4px;
+    }
+
+    .arrow-guide-icon {
+      width: 20px;
+      height: 20px;
+      fill: #0284c7;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(5px);
+      }
     }
 
     /* 主下载按钮 */
@@ -234,6 +268,14 @@
     <h1 class="app-name">拾语</h1>
     <p class="app-desc">免费使用的视频聊天交友软件</p>
 
+    <!-- 动态指引箭头（独立排版，绝对不遮挡） -->
+    <div class="arrow-guide-box" id="webGuide">
+      <span class="arrow-guide-text"> 点 击 下 载 </span>
+      <svg class="arrow-guide-icon" viewBox="0 0 24 24">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+      </svg>
+    </div>
+
     <!-- 安全下载按钮 -->
     <a href="https://oss01.sychat.cn/app/%E6%8B%BE%E8%AF%AD20260709145300_V1.0.8_1008.apk" class="btn-download" id="downloadBtn">
       <svg viewBox="0 0 24 24">
@@ -251,11 +293,11 @@
         </span>
         <span class="tag-item">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          无毒
+          无毒无木马
         </span>
         <span class="tag-item">
           <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-         无木马
+          隐私安全
         </span>
       </div>
       <p class="security-tips">已通过安全软件检测，请放心安装使用</p>
@@ -289,27 +331,29 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      const webGuide = document.getElementById('webGuide');
+      const mask = document.getElementById('wxMask');
+      const btn = document.getElementById('downloadBtn');
+      const btnText = document.getElementById('btnText');
+
       if (isWeChat()) {
-        const mask = document.getElementById('wxMask');
-        const btn = document.getElementById('downloadBtn');
-        const btnText = document.getElementById('btnText');
-
-        // 显示右上角遮罩
+        // 微信环境：隐藏网页版箭头指示，显示微信右上角引导
+        if (webGuide) webGuide.style.display = 'none';
+        
         mask.style.display = 'block';
-
-        // 微信环境文案修改为：右上角浏览器打开
         btnText.innerText = '右上角浏览器打开';
 
-        // 再次点击按钮重新激活遮罩
         btn.addEventListener('click', (e) => {
           e.preventDefault();
           mask.style.display = 'block';
         });
 
-        // 点击遮罩本身可关闭（防止用户想先看页面）
         mask.addEventListener('click', () => {
           mask.style.display = 'none';
         });
+      } else {
+        // 普通网页/浏览器环境：显示向下跳动的指引箭头
+        if (webGuide) webGuide.style.display = 'flex';
       }
     });
   </script>
